@@ -13,5 +13,11 @@ do
 done
 
 mkdir "attendance_tracker_$at_dir"
-echo "Folder created"
+mkdir "attendance_tracker_$at_dir/Helpers" "attendance_tracker_$at_dir/reports"
+echo "Folders created"
+
+cp -v "attendance_checker.py" "attendance_tracker_$at_dir/"
+cp -v "assets.csv" "config.json" "attendance_tracker_$at_dir/Helpers/"
+cp -v "reports.log" "attendance_tracker_$at_dir/reports"
+echo "Files Added"
 
