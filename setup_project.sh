@@ -21,3 +21,16 @@ cp -v "assets.csv" "config.json" "attendance_tracker_$at_dir/Helpers/"
 cp -v "reports.log" "attendance_tracker_$at_dir/reports"
 echo "Files Added"
 
+updte=""
+
+until [ $updte == "Y" ] || [ $updte == "n" ]
+do
+	read -rp "Do you want to update attendance thresholds(Y/n): " updte
+	if [ ! $updte == "Y" ] || [ ! $updte == "n" ]; then
+		echo "Follow format (Y/n)"
+	fi
+done
+
+if [ $updte == "Y" ]; then
+	
+fi
