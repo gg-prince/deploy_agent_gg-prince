@@ -1,5 +1,24 @@
 #!/usr/bin/env bash
 
+exit_func() {
+
+	if [ -d "attendance_tracker_$at_dir" ]; then
+		
+		if [ -d "attendance_tracker_${at_dir}_archive" ]; then
+			rm -rf "attendance_tracker_${at_dir}_archive"
+		fi
+
+		mv "attendance_tracker_$at_dir" "attendance_tracker_${at_dir}_archive"
+	fi
+
+	echo ""
+	echo "Exiting..."
+
+	exit 1
+}
+
+trap exit_func SIGINT
+
 at_dir=""
 
 until [ ! -d "attendance_tracker_$at_dir" ] && [ -n "$at_dir" ]
