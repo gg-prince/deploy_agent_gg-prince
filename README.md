@@ -1,5 +1,7 @@
 # setup_project.sh guidance
 
+## Link to video explaining code: https://drive.google.com/file/d/1ARw64V4EA-BqZKILIQISqZmsxYchzHx3/view?usp=sharing
+
 ## Overview
 
 This project implements a shell-based deployment utility for automating the setup of a **Student Attendance Tracker** application. The objective is to demonstrate the principles of Infrastructure as Code (IaC) by replacing manual environment setup with a reproducible, efficient, and reliable automation process.
