@@ -164,7 +164,7 @@ If the setup process is interrupted before completion, the following actions occ
 2. The archive is named using the following convention:
 
 ```text
-attendance_tracker_<project_name>_archive.tar.gz
+attendance_tracker_<project_name>_archive
 ```
 
 3. The incomplete project directory is removed.
