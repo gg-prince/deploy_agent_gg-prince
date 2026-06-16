@@ -6,9 +6,13 @@ exit_func() {
 		
 		if [ -d "attendance_tracker_${at_dir}_archive" ]; then
 			rm -rf "attendance_tracker_${at_dir}_archive"
+			echo ""
+			echo "Removed previous archive"
 		fi
 
 		mv "attendance_tracker_$at_dir" "attendance_tracker_${at_dir}_archive"
+		echo ""
+		echo "Saved to archive attendance_tracker_${at_dir}_archive"
 	fi
 
 	echo ""
