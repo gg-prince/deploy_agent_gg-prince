@@ -37,12 +37,16 @@ done
 
 mkdir "attendance_tracker_$at_dir"
 mkdir "attendance_tracker_$at_dir/Helpers" "attendance_tracker_$at_dir/reports"
+echo ""
 echo "Folders created"
+echo ""
 
 cp -v "attendance_checker.py" "attendance_tracker_$at_dir/"
 cp -v "assets.csv" "config.json" "attendance_tracker_$at_dir/Helpers/"
 cp -v "reports.log" "attendance_tracker_$at_dir/reports"
+echo ""
 echo "Files Added"
+echo ""
 
 echo "------------------------------------------------------------"
 
@@ -52,10 +56,12 @@ until [ "$updte" == "Y" ] || [ "$updte" == "n" ]
 do
 	echo ""
 	read -rp "Do you want to update attendance thresholds(Y/n): " updte
-	if [ ! $updte == "Y" ] && [ ! $updte == "n"]; then
+	if [ ! $updte == "Y" ] && [ ! $updte == "n" ]; then
 		echo "Follow format (Y/n)"
 	fi
 done
+
+echo ""
 
 if [ "$updte" == "Y" ]; then
 
@@ -92,10 +98,48 @@ fi
 
 echo "------------------------------------------------------------"
 
+echo ""
+
+echo "Searching for Python3..."
+
+if python3 --version >/dev/null 2>&1; then
+        echo "Awesome, Python3 is available on your computer!!"
+else
+    echo "Warning, Python3 is not available on your computer."
+fi
+
+echo ""
+
+until [ -d "attendance_tracker_$at_dir" ] && [ -d "attendance_tracker_${at_dir}/Helpers" ] && [ -d "attendance_tracker_${at_dir}/reports" ] && [ -f "attendance_tracker_${at_dir}/Helpers/assets.csv" ] && [ -f "attendance_tracker_${at_dir}/Helpers/config.json" ] && [ -f "attendance_tracker_${at_dir}/reports/reports.log" ]
+do
+
+        if [ ! -d "attendance_tracker_$at_dir" ]; then
+		mkdir "attendance_tracker_$at_dir"
+        fi
+
+	if [ ! -d "attendance_tracker_$at_dir/Helpers" ]; then
+		mkdir "attendance_tracker_$at_dir/Helpers"
+	fi
+
+	if [ ! -d "attendance_tracker_$at_dir/reports" ]; then
+		mkdir "attendance_tracker_$at_dir/reports"
+	fi
+
+	if [ ! -f "attendance_tracker_${at_dir}/Helpers/assets.csv" ]; then
+		cp -v "assets.csv" "attendance_tracker_$at_dir/Helpers/"
+	fi
+
+	if [ -f "attendance_tracker_${at_dir}/Helpers/config.json" ]; then
+		cp -v "config.json" "attendance_tracker_$at_dir/Helpers/"
+	fi
+
+	if [ -f "attendance_tracker_${at_dir}/reports/reports.log" ]; then
+		cp -v "reports.log" "attendance_tracker_$at_dir/reports"
+	fi
+
+done
+
+echo "Application Directory structure is followed."
 
 
-
-
-
-
-
+echo ""
