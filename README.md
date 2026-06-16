@@ -219,6 +219,7 @@ The script includes safeguards to improve reliability, including:
 * Validation of numeric user input.
 * Graceful handling of execution interruptions.
 * Cleanup of incomplete deployments.
+* Ensures directory structure is consistent wherever it is ran
 
 These measures help ensure consistent and reproducible project setup.
 
